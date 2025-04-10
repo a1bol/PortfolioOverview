@@ -13,7 +13,7 @@
 
 ## 📁 Структура проекта
 
-src/
+<pre>src/
     ├── components/ # UI-компоненты │ 
     │ ├── AddAssetForm.tsx # Форма добавления актива 
     │ └── PortfolioAnalytics.tsx # Аналитика портфеля (по желанию) 
@@ -32,7 +32,7 @@ src/
     │ └── index.ts 
     ├── App.tsx # Корневой компонент 
     ├── main.tsx # Точка входа └── vite-env.d.ts # Типы окружения Vite
-
+</pre>
     
 ## 🧩 Функциональность
 

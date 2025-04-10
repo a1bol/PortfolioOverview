@@ -8,7 +8,6 @@
 - **Redux Toolkit + React-Redux**
 - **SCSS (SASS)**
 - **WebSocket (Binance API)**
-- **uuid** — генерация уникальных ID для активов
 - **react-window** — виртуализация длинных списков
 - **Vite** — сборщик проекта
 

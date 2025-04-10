@@ -69,3 +69,7 @@ npm install
 
 # 3. Запускаем в режиме разработки
 npm run dev
+
+
+## 🧩 Деплой проекта на Vercel
+https://portfolio-overview-green.vercel.app

@@ -39,15 +39,13 @@ export const PortfolioOverview = () => {
     <div className="portfolio-overview">
       <h2>Portfolio Overview</h2>
 
-      {/* Используем FixedSizeList, чтобы рендерить как заголовки, так и строки */}
       <List
         height={400}
-        itemCount={assets.length + 1} // +1 для отображения заголовков
+        itemCount={assets.length + 1}
         itemSize={60}
         width={'90vw'}
       >
         {({ index, style }) => {
-          // Если индекс равен 0, рендерим заголовки
           if (index === 0) {
             return (
               <div className="portfolio-header" style={style}>
@@ -60,8 +58,6 @@ export const PortfolioOverview = () => {
               </div>
             );
           }
-
-          // Для всех остальных индексов рендерим строки
           return <Row index={index - 1} style={style} />;
         }}
       </List>

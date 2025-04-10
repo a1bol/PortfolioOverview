@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
+# 📊 PortfolioOverview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Модуль для управления крипто-портфелем с real-time обновлением цен, формой добавления активов и виртуализированным списком. Выполнено в рамках тестового задания на позицию Frontend Developer.
 
-Currently, two official plugins are available:
+## 🔧 Технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React + TypeScript**
+- **Redux Toolkit + React-Redux**
+- **SCSS (SASS)**
+- **WebSocket (Binance API)**
+- **uuid** — генерация уникальных ID для активов
+- **react-window** — виртуализация длинных списков
+- **Vite** — сборщик проекта
 
-## Expanding the ESLint configuration
+## 📁 Структура проекта
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+src/
+    ├── components/ # UI-компоненты │ 
+    │ ├── AddAssetForm.tsx # Форма добавления актива 
+    │ └── PortfolioAnalytics.tsx # Аналитика портфеля (по желанию) 
+    ├── constants/ # Константы (например, список активов) 
+    │ └── assets.ts 
+    ├── features/portfolio/ # Redux slice + компонент отображения портфеля 
+    │ ├── PortfolioOverview.tsx 
+    │ └── portfolioSlice.ts 
+    ├── services/ # Работа с WebSocket 
+    │ └── binanceSocket.ts 
+    ├── store/ # Redux store + хуки 
+    │ ├── hooks.ts │ └── index.ts 
+    ├── styles/ # SCSS стили 
+    │ └── globals.scss 
+    ├── types/ # Типы данных 
+    │ └── index.ts 
+    ├── App.tsx # Корневой компонент 
+    ├── main.tsx # Точка входа └── vite-env.d.ts # Типы окружения Vite
 
-- Configure the top-level `parserOptions` property like this:
+    
+## 🧩 Функциональность
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- 📈 Отображение портфеля с полями:
+  - Название
+  - Количество
+  - Цена
+  - Общая стоимость
+  - Изменение за 24 часа (%)
+  - Доля в портфеле (%)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- 🧮 Форма добавления актива:
+  - Выбор из доступных активов
+  - Указание количества
+  - Добавление в портфель
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- 🔄 Обновление цен в реальном времени с Binance WebSocket
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- 💾 Сохранение данных в `localStorage`
+
+- 🧹 Удаление актива кликом
+
+- ⚡️ Виртуализация списка через `react-window` — плавная работа при 100+ активах
+
+## 🛠️ Установка и запуск
+
+```bash
+# 1. Клонируем репозиторий
+git clone https://github.com/your-username/portfolio-overview.git
+cd portfolio-overview
+
+# 2. Устанавливаем зависимости
+npm install
+
+# 3. Запускаем в режиме разработки
+npm run dev
